@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">QR Attendance</string>
+    <string name="please_click_back_again_to_exit">Please click back again to exit</string>
+    <string name="err_msg_enter_email">Kindly enter an email</string>
+    <string name="err_msg_enter_password">Kindly enter your password</string>
+    <string name="err_msg_enter_valid_email">The email pattern you entered is unaccepted</string>
+
+    <string-array name="courses_array">
+        <item>Select</item>>
+        <item>CPT523 Introduction to Mobile Computing</item>
+        <item>CPT521 Programming Language Translation</item>
+        <item>CPT522 Data Mining</item>
+        <item>CPT524 Expert Systems</item>
+        <item>CPT525 Performance Evaluation Metrics</item>
+    </string-array>
+</resources>

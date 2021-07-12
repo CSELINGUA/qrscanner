@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF9100</color>
+    <color name="colorPrimaryDark">#A6FF9100</color>
+    <color name="colorAccent">#25FF9100</color>
+
+    <color name="snack_bar_error">#d72323</color>
+    <color name="snack_bar_success">#2cb978</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
