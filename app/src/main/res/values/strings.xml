@@ -7,10 +7,20 @@
 
     <string-array name="courses_array">
         <item>Select</item>>
-        <item>CPT523 Introduction to Mobile Computing</item>
-        <item>CPT521 Programming Language Translation</item>
-        <item>CPT522 Data Mining</item>
-        <item>CPT524 Expert Systems</item>
-        <item>CPT525 Performance Evaluation Metrics</item>
+        <item>CSS511 Entrepreneurship II</item>
+        <item>CSS512 Ethical hacking and counter measure II</item>
+        <item>CSS513 Penetration testing I</item>
+        <item>CSS514 Cyber forensic</item>
+        <item>CSS515 Biometric security technology</item>
+        <item>CPT512 Current trends in computer science</item>
+        <item>CPT515 Artificial intelligence</item>
+        <item>CSS521 E-business security</item>
+        <item>CSS522 Current trends in cyber security</item>
+        <item>CSS523 Development in the J2EE environment</item>
+        <item>CSS524 Penetration testing II</item>
+        <item>CPT529 Project</item>
+        <item>CPT522 Data mining</item>
+
+
     </string-array>
 </resources>

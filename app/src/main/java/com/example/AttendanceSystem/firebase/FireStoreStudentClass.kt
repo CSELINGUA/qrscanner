@@ -1,10 +1,14 @@
 package com.example.AttendanceSystem.firebase
 
 import android.app.Activity
+import android.os.Build
+import androidx.annotation.RequiresApi
 import com.example.AttendanceSystem.activities.FullDetailsActivity
+import com.example.AttendanceSystem.activities.PreparationActivity
 import com.example.AttendanceSystem.models.Attendance
 import com.example.AttendanceSystem.models.Student
 import com.example.AttendanceSystem.utils.Constants
+import com.example.AttendanceSystem.utils.HelperClass
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 
@@ -63,6 +67,39 @@ class FireStoreStudentClass {
                 activity.addAttendanceSuccess()
             }.addOnFailureListener { e ->
                 activity.addAttendanceFailure(e.message.toString())
+            }
+    }
+    @RequiresApi(Build.VERSION_CODES.M)
+    fun fetchAttendance(activity: Activity){
+        mFireStoreStudentClass.collection(Constants.ATTENDANCE).get()
+            .addOnSuccessListener {
+                val docs =it.documents
+                val attendance = ArrayList<Attendance>()
+                if (docs.isNotEmpty())
+                for (doc in docs){
+                    val att = doc.toObject(Attendance::class.java)
+                    attendance.add(att!!)
+                }
+                if (attendance.isNotEmpty())
+                when(activity){
+                    is HelperClass -> {
+                        activity.fetchAttendanceSuccess(attendance)
+                    }
+                }
+                else
+                    when(activity){
+                        is HelperClass -> {
+                            activity.fetchAttendanceFailure("ATTENDANCE DATABASE IS EMPTY")
+                        }
+                    }
+
+            }
+            .addOnFailureListener{
+                when(activity){
+                    is HelperClass -> {
+                        activity.fetchAttendanceFailure(it.message.toString())
+                    }
+                }
             }
     }
 }

@@ -56,7 +56,7 @@ class FullDetailsActivity : BaseActivity() {
 
     fun fetchStudentFailure(error: String) {
         hideProgressDialog()
-        Toast.makeText(this,error, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this,error, Toast.LENGTH_LONG).show()
     }
 
     fun addStudentSuccess() {

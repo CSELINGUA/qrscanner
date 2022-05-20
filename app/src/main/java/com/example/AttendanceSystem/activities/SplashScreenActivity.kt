@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
 import com.example.AttendanceSystem.R
+import com.example.AttendanceSystem.utils.HelperClass
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +18,7 @@ class SplashScreenActivity : AppCompatActivity() {
         )
 
         Handler().postDelayed({
-           startActivity(Intent(this, LoginActivity::class.java))
+           startActivity(Intent(this, PreparationActivity::class.java))
            finish()
         }, 2000)
     }

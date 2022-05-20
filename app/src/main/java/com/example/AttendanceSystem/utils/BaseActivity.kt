@@ -2,6 +2,7 @@ package com.example.AttendanceSystem.utils
 
 import android.app.Dialog
 import android.graphics.LightingColorFilter
+import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -86,5 +87,4 @@ open class BaseActivity: AppCompatActivity() {
         isImported = true
 */
     }
-
 }

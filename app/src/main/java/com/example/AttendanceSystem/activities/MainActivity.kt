@@ -24,16 +24,11 @@ import java.util.concurrent.Executors
 
 class MainActivity : AppCompatActivity() {
 
-    private var bottomSheet = BarcodeResultBottomSheet()
+
     private lateinit var cameraProviderFuture: ListenableFuture<ProcessCameraProvider>
     private lateinit var cameraExecutor: ExecutorService
     private lateinit var analyzer: MyImageAnalyzer
     var course: String = ""
-
-    override fun onResume() {
-        super.onResume()
-
-    }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,22 +48,19 @@ class MainActivity : AppCompatActivity() {
 
         if(intent.hasExtra("course")){
                 course = intent.extras?.get("course").toString()
+                analyzer = MyImageAnalyzer(supportFragmentManager,course)
+                cameraExecutor = Executors.newSingleThreadExecutor()
+                cameraProviderFuture = ProcessCameraProvider.getInstance(this)
+                cameraProviderFuture.addListener(Runnable {
+                    val cameraProvider = cameraProviderFuture.get()
+                    bindPreview(cameraProvider)
+                }, ContextCompat.getMainExecutor(this))
             }
-
-        analyzer = MyImageAnalyzer(supportFragmentManager,course)
-        cameraExecutor = Executors.newSingleThreadExecutor()
-        cameraProviderFuture = ProcessCameraProvider.getInstance(this)
-
-        cameraProviderFuture.addListener(Runnable {
-            val cameraProvider = cameraProviderFuture.get()
-            bindPreview(cameraProvider)
-        }, ContextCompat.getMainExecutor(this))
     }
 
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    @SuppressLint("UnsafeExperimentalUsageError")
-
+//    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+//    @SuppressLint("UnsafeExperimentalUsageError")
     private fun bindPreview(cameraProvider: ProcessCameraProvider) {
         val preview: Preview = Preview.Builder()
             .build()
